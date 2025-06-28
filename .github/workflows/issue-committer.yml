@@ -35,18 +35,29 @@ jobs:
       - name: Run Gemini Agent to apply changes
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           echo "Installing @google/gemini-cli..."
           npm install -g @google/gemini-cli
 
-          # Create a meta-prompt to give the AI clear instructions
-          META_PROMPT="You are an expert software engineer. Your task is to modify the files in the current directory based on the user's request. The user's request is: '${{ github.event.issue.body }}'. Please apply the changes directly to the files."
+          # Create a meta-prompt using environment variable to avoid shell interpretation
+          cat > prompt.txt << 'PROMPT_EOF'
+          You are an expert software engineer. Your task is to modify the files in the current directory based on the user's request. 
+
+          The user's request is:
+          PROMPT_EOF
+          
+          # Append the issue body safely using environment variable
+          echo "$ISSUE_BODY" >> prompt.txt
+          
+          echo "" >> prompt.txt
+          echo "Please apply the changes directly to the files." >> prompt.txt
 
           echo "Running Gemini Agent with the following prompt:"
-          echo "$META_PROPT"
+          cat prompt.txt
 
-          # Run the gemini cli with the prompt
-          gemini -y -p "$META_PROMPT"
+          # Run the gemini cli with the prompt from file
+          gemini -y -p "$(cat prompt.txt)"
 
           echo "Gemini Agent has finished. Staging changes..."
           git add .
