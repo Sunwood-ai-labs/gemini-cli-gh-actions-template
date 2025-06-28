@@ -1,5 +1,7 @@
 <div align="center">
 
+![Image](https://github.com/user-attachments/assets/cc5761b4-ed8b-477b-a85a-a0b2220d30da)
+
 # Gemini CLI & GitHub Actions テンプレートリポジトリ
 
 <p>
@@ -15,7 +17,9 @@
 
 <!-- ここにスクリーンショットを挿入 -->
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/616555c8-0193-4823-9bdc-14363b15a1ea" alt="アプリケーションのスクリーンショット" width="600">
+
+![Image](https://github.com/user-attachments/assets/86cbfe6a-ccee-431b-915c-aeb9370fbc4b)
+
 </div>
 
 ## ✨ 特徴
@@ -32,10 +36,9 @@
 │   └── workflows/
 │       ├── issue-committer.yml  # Issue ベースの自動コミットワークフロー
 │       └── README.md            # ワークフローの詳細説明
+├── .gemini/
+│   └── DEVELOPMENT_WORKFLOW.md  # 開発ワークフロー
 ├── .gitignore
-├── index.html                   # 夏詣おみくじアプリ
-├── script.js
-├── style.css
 └── README.md
 ```
 
@@ -50,9 +53,6 @@ git clone https://github.com/your-username/your-repository-name.git
 cd your-repository-name
 ```
 
-### Webアプリケーションの実行
-
-`index.html` ファイルをブラウザで開くと、「夏詣（なつもうで）おみくじ」アプリケーションを試すことができます。
 
 ## ⚙️ 使用方法
 
