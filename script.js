@@ -29,6 +29,7 @@ document.getElementById('draw-button').addEventListener('click', function() {
             summer_message: '暑さでぼーっとしてしまいがち。水分補給を忘れずに、冷静に。'
         }
     };
+    // おみくじの結果をランダムに選択
     const fortuneKeys = Object.keys(fortunes);
     const randomIndex = Math.floor(Math.random() * fortuneKeys.length);
     const fortune = fortuneKeys[randomIndex];

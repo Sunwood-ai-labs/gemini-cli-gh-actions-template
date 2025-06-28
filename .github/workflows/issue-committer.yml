@@ -37,8 +37,11 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-          echo "Installing @google/gemini-cli..."
-          npm install -g @google/gemini-cli
+          echo "Installing dependencies..."
+          npm ci
+
+          # Set up the prompt file
+          PROMPT_FILE=prompt.txt
 
           # Create a meta-prompt using environment variable to avoid shell interpretation
           cat > prompt.txt << 'PROMPT_EOF'

@@ -1,0 +1,19 @@
+{
+  "name": "gemini-cli-gh-actions-template",
+  "version": "1.0.0",
+  "description": "A template repository for using Gemini CLI and GitHub Actions.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gemini",
+    "github-actions",
+    "template"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@google/gemini-cli": "^0.1.5"
+  }
+}
